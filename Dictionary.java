@@ -9,10 +9,10 @@ import java.util.*;
 // ********************
 
 public class Dictionary {
+	TreeSet<String> wordListTreeSet = null;
 	public Dictionary(File wordFile) {
 		String dataLine = "";
 		BufferedReader d = null;
-		TreeSet<String> wordListTreeSet = null;
 		try {
 			wordListTreeSet = new TreeSet<String>();
 
@@ -46,6 +46,17 @@ public class Dictionary {
 		}
 	} // end of constructor Dictionary
 
+	public boolean containsWord(String word) {
+		return wordListTreeSet.contains(word);
+	}
+
+	public void setTreeSet(TreeSet wordListTreeSet) {
+		this.wordListTreeSet = wordListTreeSet;
+	}
+
+	public TreeSet getTreeSet() {
+		return wordListTreeSet;
+	}
 	//returns true if ts contains a word for which prefix is a prefix
 	public boolean containsPrefix(TreeSet<String> ts, String prefix) {
 		String prefixCeiling;

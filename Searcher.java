@@ -14,7 +14,11 @@ public class Searcher {
 	int[][] adjacencyList;
 	String[] cardinalDirectionsArray;
 	TreeSet<String> foundWordsNoDuplicates = null;
+	Board board;
+	Dictionary dictionary;
 	public Searcher(Board board, Dictionary dictionary) {
+		this.board = board;
+		this.dictionary = dictionary;
 		boardSize = board.getDimension();
 		//Creating adjacency list
 		adjacencyList = new int[boardSize*boardSize][8];
@@ -41,10 +45,10 @@ public class Searcher {
 				stack.push(i);
 				while (!stack.isEmpty()) {
 					int k = stack.pop();
-					if (k != -1 && dictionary.containsPrefix(dictionary, word) == true) {
+					if (k != -1 && dictionary.containsPrefix(dictionary.getTreeSet(), word) == true) {
 						stack.push(adjacencyList[k][j]);
-						word += board[k];
-						if (dictionary.contains(word)) {
+						word += board.getLetter(k);
+						if (dictionary.containsWord(word)) {
 							if (!foundWordsNoDuplicates.contains(word)) {
 							foundWordsNoDuplicates.add(word);
 							output.append(word + "(" + ((i%boardSize)+1) + "," + ((i/boardSize)+1) + "," + cardinalDirectionsArray[j] + ")\n");	

@@ -11,9 +11,11 @@ import java.util.*;
 public class WordSearch
 {
 	public static void main(String[] args){
-		Dictionary dictionary = new Dictionary(args[0]);
+		File dictionaryFile = new File(args[1]);
+		Dictionary dictionary = new Dictionary(dictionaryFile);
 		//board is a wrapper for the string and dimension
-		Board board = new Board(args[1]);
+		File puzzleGraphFile = new File(args[0]);
+		Board board = new Board(puzzleGraphFile);
 		//searcher creates the adjacency list
 		//and performs DFS
 		Searcher searcher = new Searcher(board, dictionary);

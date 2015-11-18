@@ -11,11 +11,11 @@ import java.util.*;
 public class Board {
 	int boardSize = 0;
 	String temp = "";
+	char[] board = null;
 	public Board(File puzzleGraphFile) {
 		String dataLine, sizeOfBoardLine = "";
 		//int boardSize = 0;
 		BufferedReader p = null;
-		char[] board = null;
 		try {
 			//File puzzleGraphFile = new File(args[0]);
 			p = new BufferedReader(new FileReader(puzzleGraphFile));
@@ -59,5 +59,9 @@ public class Board {
 	}
 	public int getDimension() {
 		return boardSize;
+	}
+
+	public char getLetter(int index) {
+		return board[index];
 	}
 } // end of class Board

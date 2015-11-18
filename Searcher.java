@@ -49,7 +49,7 @@ public class Searcher {
 						stack.push(adjacencyList[k][j]);
 						word += board.getLetter(k);
 						if (dictionary.containsWord(word)) {
-							if (!foundWordsNoDuplicates.contains(word)) {
+							if (foundWordsNoDuplicates == null || !foundWordsNoDuplicates.contains(word)) {
 							foundWordsNoDuplicates.add(word);
 							output.append(word + "(" + ((i%boardSize)+1) + "," + ((i/boardSize)+1) + "," + cardinalDirectionsArray[j] + ")\n");	
 							}

@@ -19,8 +19,11 @@ public class WordSearch
 		//searcher creates the adjacency list
 		//and performs DFS
 		Searcher searcher = new Searcher(board, dictionary);
-		List<String> wordsFound = searcher.findWords();
-		for (String s : wordsFound)
-			System.out.println(s);
+		StringBuilder wordsFound = searcher.findWords();
+		//List<String> wordsFound = searcher.findWords();
+		// for (String s : wordsFound)
+		// 	System.out.println(s);
+		System.out.println("Words:");
+		System.out.println(wordsFound.toString());
 	}
 }

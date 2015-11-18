@@ -21,7 +21,7 @@ public class Dictionary {
 			//File dictionaryFile = new File(args[1]);
 			d = new BufferedReader(new FileReader(wordFile));
 			while ((dataLine = d.readLine()) != null) {
-				dataLine.trim();
+				dataLine = dataLine.trim();
 				wordListTreeSet.add(dataLine);
 			}
 			//System.out.println("treeset:");

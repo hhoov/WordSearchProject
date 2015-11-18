@@ -9,7 +9,7 @@ import java.util.*;
 // ********************
 
 public class Dictionary {
-	public Dictionary(File args) {
+	public Dictionary(File wordFile) {
 		String dataLine = "";
 		BufferedReader d = null;
 		TreeSet<String> wordListTreeSet = null;
@@ -18,8 +18,8 @@ public class Dictionary {
 
 			//do i need to sort the word list and then add them to the treeset?
 			//adding according to length= home-homework-homeworker
-			File dictionaryFile = new File(args[1]);
-			d = new BufferedReader(new FileReader(dictionaryFile));
+			//File dictionaryFile = new File(args[1]);
+			d = new BufferedReader(new FileReader(wordFile));
 			while ((dataLine = d.readLine()) != null) {
 				dataLine.trim();
 				wordListTreeSet.add(dataLine);

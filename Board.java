@@ -11,13 +11,13 @@ import java.util.*;
 public class Board {
 	int boardSize = 0;
 	String temp = "";
-	public Board(String[] args) {
+	public Board(File puzzleGraphFile) {
 		String dataLine, sizeOfBoardLine = "";
 		//int boardSize = 0;
 		BufferedReader p = null;
 		char[] board = null;
 		try {
-			File puzzleGraphFile = new File(args[0]);
+			//File puzzleGraphFile = new File(args[0]);
 			p = new BufferedReader(new FileReader(puzzleGraphFile));
 			sizeOfBoardLine = p.readLine();
 			boardSize = Integer.parseInt(sizeOfBoardLine);

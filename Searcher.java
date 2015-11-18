@@ -9,7 +9,7 @@ import java.util.*;
 // ********************
 
 public class Searcher {
-	int boardSize;
+	int boardSize, numOfWords;
 	String word = "";
 	int[][] adjacencyList;
 	String[] cardinalDirectionsArray;
@@ -53,12 +53,14 @@ public class Searcher {
 							if (foundWordsNoDuplicates == null || !foundWordsNoDuplicates.contains(word)) {
 							foundWordsNoDuplicates.add(word);
 							output.append(word + "(" + ((i%boardSize)+1) + "," + ((i/boardSize)+1) + "," + cardinalDirectionsArray[j] + ")\n");	
+							numOfWords++;
 							}
 						}
 					}
 				} // end of while
 			} // end of second for loop
 		} // end of first foor loop
+		output.append("Words found: " + numOfWords);
 		return output;
 	} // end of method findWords()
 

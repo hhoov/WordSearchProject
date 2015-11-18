@@ -20,10 +20,10 @@ public class WordSearch
 		//and performs DFS
 		Searcher searcher = new Searcher(board, dictionary);
 		StringBuilder wordsFound = searcher.findWords();
+		System.out.println("Words:");
+		System.out.println(wordsFound.toString());
 		//List<String> wordsFound = searcher.findWords();
 		// for (String s : wordsFound)
 		// 	System.out.println(s);
-		System.out.println("Words:");
-		System.out.println(wordsFound.toString());
 	}
 }

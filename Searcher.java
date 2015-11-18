@@ -46,7 +46,7 @@ public class Searcher {
 				stack.push(i);
 				while (!stack.isEmpty()) {
 					int k = stack.pop();
-					if (k != -1 && dictionary.containsPrefix(dictionary.getTreeSet(), word) == true) {
+					if (k != -1 && dictionary.containsPrefix(word) == true) {
 						stack.push(adjacencyList[k][j]);
 						word += board.getLetter(k);
 						if (dictionary.containsWord(word)) {

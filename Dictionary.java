@@ -50,18 +50,11 @@ public class Dictionary {
 		return wordListTreeSet.contains(word);
 	}
 
-	public void setTreeSet(TreeSet<String> wordListTreeSet) {
-		this.wordListTreeSet = wordListTreeSet;
-	}
-
-	public TreeSet<String> getTreeSet() {
-		return wordListTreeSet;
-	}
 	//returns true if ts contains a word for which prefix is a prefix
-	public boolean containsPrefix(TreeSet<String> ts, String prefix) {
+	public boolean containsPrefix(String prefix) {
 		String prefixCeiling;
 		int endIndex;
-		prefixCeiling = ts.ceiling(prefix);
+		prefixCeiling = wordListTreeSet.ceiling(prefix);
 		endIndex = prefix.length();
 		//if (prefixCeiling != null && (prefix.equals(prefixCeiling.substring(0,endIndex)))) {
 		if (prefixCeiling != null && (prefixCeiling.startsWith(prefix))) {

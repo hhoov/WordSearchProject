@@ -9,13 +9,14 @@ import java.util.*;
 // ********************
 
 public class Searcher {
+	int boardSize;
+	String word = "";
+	int[][] adjacencyList;
+	String[] cardinalDirectionsArray;
+	TreeSet<String> foundWordsNoDuplicates = null;
+	
 	public void Searcher(Board board, Dictionary dictionary) {
-		int[][] adjacencyList;
-		String[] cardinalDirectionsArray;
-		int boardSize = board.getDimension();
-		String word = "";
-		TreeSet<String> foundWordsNoDuplicates = null;
-
+		boardSize = board.getDimension();
 		//Creating adjacency list
 		adjacencyList = new int[boardSize*boardSize][8];
 		//Creating string array holding cardinal directions
@@ -57,7 +58,7 @@ public class Searcher {
 		return output;
 	} // end of method findWords()
 
-	public static int findNeighbors(int boardSize, int tile, String cardinalDirection) {
+	public int findNeighbors(int boardSize, int tile, String cardinalDirection) {
 		int answer = -8;
 		switch (cardinalDirection) {
 			case "NW":

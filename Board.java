@@ -9,9 +9,11 @@ import java.util.*;
 // ********************
 
 public class Board {
-	public char[] Board(String[] args) {
-		String dataLine, temp, sizeOfBoardLine = "";
-		int boardSize = 0;
+	int boardSize = 0;
+	String temp = "";
+	public Board(String[] args) {
+		String dataLine, sizeOfBoardLine = "";
+		//int boardSize = 0;
 		BufferedReader p = null;
 		char[] board = null;
 		try {
@@ -28,7 +30,7 @@ public class Board {
 				}
 			}
 			board = temp.toCharArray();
-			return board;
+			//return board;
 		} // end of try
 
 		catch (FileNotFoundException e)
@@ -48,6 +50,13 @@ public class Board {
 		}
 
 	} // end of constructor Board
+	// public setDimension() {
+	// 	boardSize = 
+	// }
+
+	public void setDimension(int boardSize) {
+		this.boardSize = boardSize;
+	}
 	public int getDimension() {
 		return boardSize;
 	}

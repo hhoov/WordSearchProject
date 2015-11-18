@@ -9,7 +9,7 @@ import java.util.*;
 // ********************
 
 public class Dictionary {
-	public TreeSet<String> Dictionary(String[] args) {
+	public Dictionary(String[] args) {
 		String dataLine = "";
 		BufferedReader d = null;
 		TreeSet<String> wordListTreeSet = null;
@@ -27,7 +27,7 @@ public class Dictionary {
 			//System.out.println("treeset:");
 			//System.out.println(wordListTreeSet);
 			//System.out.println();
-			return wordListTreeSet;
+			//return wordListTreeSet;
 		} //end of try
 		catch (FileNotFoundException e)
 		{

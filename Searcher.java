@@ -14,7 +14,6 @@ public class Searcher {
 	int[][] adjacencyList;
 	String[] cardinalDirectionsArray;
 	TreeSet<String> foundWordsNoDuplicates = null;
-	
 	public void Searcher(Board board, Dictionary dictionary) {
 		boardSize = board.getDimension();
 		//Creating adjacency list

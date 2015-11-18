@@ -50,11 +50,11 @@ public class Dictionary {
 		return wordListTreeSet.contains(word);
 	}
 
-	public void setTreeSet(TreeSet wordListTreeSet) {
+	public void setTreeSet(TreeSet<String> wordListTreeSet) {
 		this.wordListTreeSet = wordListTreeSet;
 	}
 
-	public TreeSet getTreeSet() {
+	public TreeSet<String> getTreeSet() {
 		return wordListTreeSet;
 	}
 	//returns true if ts contains a word for which prefix is a prefix

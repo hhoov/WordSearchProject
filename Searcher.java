@@ -14,7 +14,7 @@ public class Searcher {
 	int[][] adjacencyList;
 	String[] cardinalDirectionsArray;
 	TreeSet<String> foundWordsNoDuplicates = null;
-	public void Searcher(Board board, Dictionary dictionary) {
+	public Searcher(Board board, Dictionary dictionary) {
 		boardSize = board.getDimension();
 		//Creating adjacency list
 		adjacencyList = new int[boardSize*boardSize][8];
@@ -44,7 +44,7 @@ public class Searcher {
 					if (k != -1 && dictionary.containsPrefix(dictionary, word) == true) {
 						stack.push(adjacencyList[k][j]);
 						word += board[k];
-						if (wordListTreeSet.contains(word)) {
+						if (dictionary.contains(word)) {
 							if (!foundWordsNoDuplicates.contains(word)) {
 							foundWordsNoDuplicates.add(word);
 							output.append(word + "(" + ((i%boardSize)+1) + "," + ((i/boardSize)+1) + "," + cardinalDirectionsArray[j] + ")\n");	
@@ -136,28 +136,28 @@ public class Searcher {
 	} // end of method findNeighbors()
 
 	// More concise methods of finding the index of each neighbor, for easier readability
-	public static int indexOfS(int tile, int n) {
+	public int indexOfS(int tile, int n) {
 		return tile + n;
 	}
-	public static int indexOfN(int tile, int n) {
+	public int indexOfN(int tile, int n) {
 		return tile - n;
 	}
-	public static int indexOfE(int tile, int n) {
+	public int indexOfE(int tile, int n) {
 		return tile + 1;
 	}
-	public static int indexOfW(int tile, int n) {
+	public int indexOfW(int tile, int n) {
 		return tile - 1;
 	}
-	public static int indexOfNW(int tile, int n) {
+	public int indexOfNW(int tile, int n) {
 		return tile - n - 1;
 	}
-	public static int indexOfNE(int tile, int n) {
+	public int indexOfNE(int tile, int n) {
 		return tile - n + 1;
 	}
-	public static int indexOfSW(int tile, int n) {
+	public int indexOfSW(int tile, int n) {
 		return tile + n - 1;
 	}
-	public static int indexOfSE(int tile, int n) {
+	public int indexOfSE(int tile, int n) {
 		return tile + n + 1;
 	}
 } // end of class Searcher

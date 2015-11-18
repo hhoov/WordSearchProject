@@ -47,7 +47,7 @@ public class Dictionary {
 	} // end of constructor Dictionary
 
 	//returns true if ts contains a word for which prefix is a prefix
-	public static boolean containsPrefix(TreeSet<String> ts, String prefix) {
+	public boolean containsPrefix(TreeSet<String> ts, String prefix) {
 		String prefixCeiling;
 		int endIndex;
 		prefixCeiling = ts.ceiling(prefix);

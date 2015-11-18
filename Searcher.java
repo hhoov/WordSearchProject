@@ -13,7 +13,7 @@ public class Searcher {
 	String word = "";
 	int[][] adjacencyList;
 	String[] cardinalDirectionsArray;
-	TreeSet<String> foundWordsNoDuplicates = null;
+	TreeSet<String> foundWordsNoDuplicates;
 	Board board;
 	Dictionary dictionary;
 	public Searcher(Board board, Dictionary dictionary) {
@@ -38,6 +38,7 @@ public class Searcher {
 	// DFS search, using a stack, to find words in the puzzle graph
 	public StringBuilder findWords() {
 		StringBuilder output = new StringBuilder();
+		foundWordsNoDuplicates = new TreeSet<String>(); 
 		for (int i = 0; i < boardSize*boardSize; i++) {
 			for (int j = 0; j < 8; j++) {
 				Stack<Integer> stack = new Stack<>();

@@ -9,7 +9,7 @@ import java.util.*;
 // ********************
 
 public class Dictionary {
-	TreeSet<String> wordListTreeSet = null;
+	TreeSet<String> wordListTreeSet;
 	public Dictionary(File wordFile) {
 		String dataLine = "";
 		BufferedReader d = null;

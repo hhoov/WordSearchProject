@@ -18,9 +18,12 @@ public class WordSearch
 			File puzzleGraphFile = new File(args[0]);
 			Board board = new Board(puzzleGraphFile);
 			Searcher searcher = new Searcher(board, dictionary);
-			StringBuilder wordsFound = searcher.findWords();
-			System.out.println("Words:");
-			System.out.println(wordsFound.toString());
+			//StringBuilder wordsFound = searcher.findWords();
+			//System.out.println("Words:");
+			//System.out.println(wordsFound.toString());
+			List<String> wordsFound = searcher.findWords();
+			for (String s : wordsFound)
+				System.out.println(s);
 		}
 		catch (FileNotFoundException e)
 		{

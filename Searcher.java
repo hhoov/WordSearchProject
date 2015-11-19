@@ -36,8 +36,8 @@ public class Searcher {
 	} // end of constructor Searcher
 
 	// DFS search, using a stack, to find words in the puzzle graph
-	public StringBuilder findWords() {
-		StringBuilder output = new StringBuilder();
+	public List<String> findWords() {
+		List<String> output = new List<String>();
 		foundWordsNoDuplicates = new TreeSet<String>(); 
 		for (int i = 0; i < boardSize*boardSize; i++) {
 			for (int j = 0; j < 8; j++) {
@@ -52,7 +52,7 @@ public class Searcher {
 						if (dictionary.containsWord(word)) {
 							if (foundWordsNoDuplicates == null || !foundWordsNoDuplicates.contains(word)) {
 							foundWordsNoDuplicates.add(word);
-							output.append(word + "(" + ((i%boardSize)+1) + "," + ((i/boardSize)+1) + "," + cardinalDirectionsArray[j] + ")\n");	
+							output.add(word + "(" + ((i%boardSize)+1) + "," + ((i/boardSize)+1) + "," + cardinalDirectionsArray[j] + ")\n");	
 							numOfWords++;
 							}
 						}
@@ -60,7 +60,7 @@ public class Searcher {
 				} // end of while
 			} // end of second for loop
 		} // end of first foor loop
-		output.append("Words found: " + numOfWords);
+		output.add("Words found: " + numOfWords);
 		return output;
 	} // end of method findWords()
 

@@ -12,43 +12,25 @@ public class Board {
 	int boardSize = 0;
 	String temp = "";
 	char[] board = null;
-	public Board(File puzzleGraphFile) {
+	public Board(File puzzleGraphFile) throws IOException {
 		String dataLine, sizeOfBoardLine = "";
 		//int boardSize = 0;
 		BufferedReader p = null;
-		try {
-			//File puzzleGraphFile = new File(args[0]);
-			p = new BufferedReader(new FileReader(puzzleGraphFile));
-			sizeOfBoardLine = p.readLine();
-			boardSize = Integer.parseInt(sizeOfBoardLine);
-			
-			while ((dataLine = p.readLine()) != null) {
-				// dataLine.replaceAll("\\s+","");
-				for (int i = 0; i < dataLine.length(); i++) {
-					if (dataLine.charAt(i) != ' ')
-						temp += dataLine.charAt(i);
-				}
+
+		//File puzzleGraphFile = new File(args[0]);
+		p = new BufferedReader(new FileReader(puzzleGraphFile));
+		sizeOfBoardLine = p.readLine();
+		boardSize = Integer.parseInt(sizeOfBoardLine);
+		
+		while ((dataLine = p.readLine()) != null) {
+			// dataLine.replaceAll("\\s+","");
+			for (int i = 0; i < dataLine.length(); i++) {
+				if (dataLine.charAt(i) != ' ')
+					temp += dataLine.charAt(i);
 			}
-			board = temp.toCharArray();
-			//return board;
-		} // end of try
-
-		catch (FileNotFoundException e)
-		{
-			System.err.println("File not found: " + e.getMessage());
-			System.exit(1);
 		}
-		catch (IOException e)
-		{
-			System.err.println("I/O Exception: " + e.getMessage());
-			System.exit(1);
-		}
-		catch (ArrayIndexOutOfBoundsException e)
-		{
-			System.err.println("No command line argument given: " + e.getMessage());
-			System.exit(1);
-		}
-
+		board = temp.toCharArray();
+		//return board;
 	} // end of constructor Board
 	// public setDimension() {
 	// 	boardSize = 

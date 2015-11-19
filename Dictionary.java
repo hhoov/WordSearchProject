@@ -10,40 +10,24 @@ import java.util.*;
 
 public class Dictionary {
 	TreeSet<String> wordListTreeSet;
-	public Dictionary(File wordFile) {
+	public Dictionary(File wordFile) throws IOException {
 		String dataLine = "";
 		BufferedReader d = null;
-		try {
-			wordListTreeSet = new TreeSet<String>();
+		wordListTreeSet = new TreeSet<String>();
 
-			//do i need to sort the word list and then add them to the treeset?
-			//adding according to length= home-homework-homeworker
-			//File dictionaryFile = new File(args[1]);
-			d = new BufferedReader(new FileReader(wordFile));
-			while ((dataLine = d.readLine()) != null) {
-				dataLine = dataLine.trim();
-				wordListTreeSet.add(dataLine);
-			}
-			//System.out.println("treeset:");
-			//System.out.println(wordListTreeSet);
-			//System.out.println();
-			//return wordListTreeSet;
-		} //end of try
-		catch (FileNotFoundException e)
-		{
-			System.err.println("File not found: " + e.getMessage());
-			System.exit(1);
+		//do i need to sort the word list and then add them to the treeset?
+		//adding according to length= home-homework-homeworker
+		//File dictionaryFile = new File(args[1]);
+		d = new BufferedReader(new FileReader(wordFile));
+		while ((dataLine = d.readLine()) != null) {
+			dataLine = dataLine.trim();
+			wordListTreeSet.add(dataLine);
 		}
-		catch (IOException e)
-		{
-			System.err.println("I/O Exception: " + e.getMessage());
-			System.exit(1);
-		}
-		catch (ArrayIndexOutOfBoundsException e)
-		{
-			System.err.println("No command line argument given: " + e.getMessage());
-			System.exit(1);
-		}
+		//System.out.println("treeset:");
+		//System.out.println(wordListTreeSet);
+		//System.out.println();
+		//return wordListTreeSet;
+
 	} // end of constructor Dictionary
 
 	public boolean containsWord(String word) {

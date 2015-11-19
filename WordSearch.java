@@ -11,11 +11,30 @@ import java.util.*;
 public class WordSearch
 {
 	public static void main(String[] args){
-		File dictionaryFile = new File(args[1]);
-		Dictionary dictionary = new Dictionary(dictionaryFile);
-		//board is a wrapper for the string and dimension
-		File puzzleGraphFile = new File(args[0]);
-		Board board = new Board(puzzleGraphFile);
+		try {
+			File dictionaryFile = new File(args[1]);
+			Dictionary dictionary = new Dictionary(dictionaryFile);
+			//board is a wrapper for the string and dimension
+			File puzzleGraphFile = new File(args[0]);
+			Board board = new Board(puzzleGraphFile);
+
+			
+		}
+		catch (FileNotFoundException e)
+		{
+			System.err.println("File not found: " + e.getMessage());
+			System.exit(1);
+		}
+		catch (IOException e)
+		{
+			System.err.println("I/O Exception: " + e.getMessage());
+			System.exit(1);
+		}
+		catch (ArrayIndexOutOfBoundsException e)
+		{
+			System.err.println("No command line argument given: " + e.getMessage());
+			System.exit(1);
+		}
 		//searcher creates the adjacency list
 		//and performs DFS
 		Searcher searcher = new Searcher(board, dictionary);
